@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAZE Non-Alcoholic Beer</title>
+  <title>RAZE Non-Alcoholic Pilsner</title>
   <style>
     * {
       margin: 0;
@@ -13,379 +13,622 @@
     }
 
     body {
-      background: #f7f1e8;
-      color: #1c1c1c;
+      background: #f2f2f2;
+      color: #111;
     }
 
     header {
+      height: 78px;
+      padding: 0 4%;
       background: #ffffff;
-      padding: 20px 8%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    .logo {
-      font-size: 30px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-r {
+      font-size: 42px;
+      font-weight: 900;
+      color: #e86400;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 28px;
       font-weight: 900;
       letter-spacing: 8px;
-      color: #cfa12e;
+      font-style: italic;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 50px;
     }
 
     nav a {
-      margin-left: 25px;
       text-decoration: none;
-      color: #222;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #cfa12e;
-    }
-
-    .hero {
-      min-height: 85vh;
-      padding: 70px 8%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 50px;
-      background: linear-gradient(120deg, #fffaf2, #ead0aa);
-    }
-
-    .hero-text h1 {
-      font-size: 72px;
-      line-height: 0.95;
       color: #111;
+      font-size: 16px;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
-    .hero-text span {
-      color: #cfa12e;
+    nav a:hover {
+      color: #e86400;
     }
 
-    .hero-text p {
+    .cart-link {
+      position: relative;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -12px;
+      right: -18px;
+      background: #e86400;
+      color: white;
+      font-size: 12px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .hero {
+      min-height: 520px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(232,100,0,0.45), transparent 28%),
+        linear-gradient(90deg, rgba(0,0,0,0.96), rgba(0,0,0,0.75), rgba(0,0,0,0.95));
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 0.8fr;
+      align-items: center;
+      gap: 30px;
+      padding: 55px 4%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,115,0,0.15) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left,
+    .hero-product,
+    .hero-right {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-left h1 {
+      font-size: 88px;
+      line-height: 0.92;
+      text-transform: uppercase;
+      font-weight: 1000;
+      letter-spacing: -2px;
+    }
+
+    .hero-left h1 span {
+      color: #e86400;
+      display: block;
+    }
+
+    .hero-left p {
+      max-width: 460px;
       margin: 25px 0;
-      font-size: 20px;
-      line-height: 1.5;
-      max-width: 520px;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    .badges {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .badge-icon {
+      font-size: 30px;
+      color: #ffffff;
+    }
+
+    .orange-line {
+      width: 2px;
+      height: 42px;
+      background: #e86400;
     }
 
     .button {
       display: inline-block;
-      padding: 15px 30px;
-      background: #cfa12e;
+      padding: 17px 36px;
+      background: #e86400;
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      letter-spacing: 1px;
+      font-weight: 1000;
+      border-radius: 5px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .button:hover {
-      background: #5c2605;
+      background: #c95600;
     }
 
-    .can-box {
-      height: 520px;
-      max-width: 290px;
-      margin: auto;
-      background: linear-gradient(90deg, #fdfdfd, #ffffff, #eee1d0);
-      border-radius: 35px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    .hero-product {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      border-top: 18px solid #d4a63a;
-      border-bottom: 18px solid #d4a63a;
-      position: relative;
+      justify-content: center;
+      gap: 30px;
     }
 
-    .can-box h2 {
-      font-size: 42px;
-      color: #cfa12e;
-      letter-spacing: 6px;
+    .hero-can {
+      width: 270px;
+      height: 360px;
+      object-fit: contain;
+      filter: drop-shadow(0 25px 30px rgba(0,0,0,0.55));
     }
 
-    .can-box p {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 2px;
+    .hero-glass {
+      width: 250px;
+      height: 380px;
+      object-fit: contain;
+      filter: drop-shadow(0 25px 30px rgba(0,0,0,0.55));
     }
 
-    .beer-glass {
-      width: 150px;
-      height: 250px;
-      margin: auto;
-      border: 5px solid rgba(255,255,255,0.9);
-      border-radius: 18px 18px 35px 35px;
-      background: linear-gradient(180deg, #f6d08b 0%, #e0b64a 40%, #c79a2e 100%);
-      box-shadow: inset 0 0 25px rgba(255,255,255,0.35), 0 20px 45px rgba(0,0,0,0.25);
-      position: relative;
-    }
-
-    .beer-glass::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 42px;
-      background: #fff1cc;
-      border-radius: 12px 12px 8px 8px;
-    }
-
-    .section {
-      padding: 70px 8%;
-    }
-
-    .section h2 {
-      font-size: 42px;
-      margin-bottom: 35px;
-      text-align: center;
+    .hero-right h2 {
+      font-size: 32px;
+      line-height: 1.15;
       text-transform: uppercase;
+      font-weight: 1000;
+      margin-bottom: 18px;
+    }
+
+    .hero-right h2 span {
+      color: #e86400;
+      display: block;
+    }
+
+    .hero-right p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      max-width: 340px;
+    }
+
+    .outline-button {
+      display: inline-block;
+      padding: 14px 34px;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 900;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .shop-section {
+      padding: 18px 4% 26px;
+      background: #f4f4f4;
+      background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+
+    .shop-section h2 {
+      font-size: 30px;
+      text-transform: uppercase;
+      font-weight: 1000;
+      margin-bottom: 14px;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 34px;
     }
 
     .product-card {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 26px;
+      min-height: 280px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.14);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 12px;
     }
 
-    .mini-can {
-      width: 110px;
-      height: 210px;
-      background: linear-gradient(90deg, #ffffff, #f8f2e8, #ffffff);
-      border-radius: 22px;
-      border-top: 10px solid #d4a63a;
-      border-bottom: 10px solid #d4a63a;
-      margin: 0 auto 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #cfa12e;
-      font-weight: 900;
-      letter-spacing: 3px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    .product-card img {
+      grid-column: 1 / 3;
+      width: 100%;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 10px;
     }
 
     .product-card h3 {
       font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .product-card p {
-      color: #555;
-      margin-bottom: 15px;
-      line-height: 1.4;
+      text-transform: uppercase;
+      font-weight: 1000;
+      grid-column: 1 / 2;
     }
 
     .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #cfa12e;
-      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 900;
+      grid-column: 1 / 2;
+      margin-top: -8px;
     }
 
     .product-card button {
+      grid-column: 2 / 3;
+      grid-row: 2 / 4;
+      align-self: end;
+      justify-self: end;
       border: none;
-      padding: 13px 25px;
-      background: #111;
-      color: white;
-      font-weight: bold;
-      border-radius: 4px;
+      background: #e86400;
+      color: #fff;
+      font-weight: 1000;
+      padding: 14px 24px;
+      border-radius: 5px;
       cursor: pointer;
+      text-transform: uppercase;
     }
 
-    .product-card button:hover {
-      background: #cfa12e;
-    }
-
-    .about {
-      background: #111;
+    .bottom-info {
+      background: linear-gradient(90deg, #111, #1c1c1c, #111);
       color: white;
+      padding: 28px 4%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .info-box {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .info-icon {
+      color: #e86400;
+      font-size: 46px;
+      text-align: center;
+    }
+
+    .info-box h3 {
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .info-box p {
+      line-height: 1.4;
+      color: #eee;
+    }
+
+    .sub-page {
+      min-height: calc(100vh - 78px);
+      padding: 70px 8%;
+      background: #f4f4f4;
+      background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+
+    .sub-page h1 {
+      font-size: 56px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
       gap: 50px;
       align-items: center;
     }
 
-    .about h2 {
-      text-align: left;
-      color: #f1b37d;
+    .about-card,
+    .cart-card {
+      background: white;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
 
-    .about p {
-      font-size: 18px;
-      line-height: 1.7;
+    .about-card p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 35px;
+    .about-card strong {
+      color: #e86400;
     }
 
-    .feature {
-      background: #222;
-      padding: 22px;
-      border-radius: 12px;
-      border-left: 4px solid #cfa12e;
-    }
-
-    .cart {
-      background: #fff;
-      padding: 50px 8%;
-      text-align: center;
+    .about-image {
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.28));
     }
 
     #cart-items {
-      margin: 20px auto;
-      max-width: 500px;
-      text-align: left;
+      margin: 20px 0;
+      font-size: 18px;
       line-height: 1.8;
     }
 
-    footer {
-      background: #cfa12e;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .cart-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
     }
 
-    @media (max-width: 850px) {
-      .hero,
-      .about,
+    #total {
+      font-size: 28px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #0e0e0e;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1050px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-left p,
+      .hero-right p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .badges {
+        justify-content: center;
+      }
+
       .products,
-      .features {
+      .bottom-info,
+      .about-layout {
         grid-template-columns: 1fr;
       }
 
-      .hero-text h1 {
-        font-size: 48px;
+      nav {
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        height: auto;
+        padding: 16px 4%;
+        flex-direction: column;
+        gap: 15px;
       }
 
-      nav {
-        display: none;
+      .brand-name {
+        font-size: 22px;
+      }
+
+      .hero-left h1 {
+        font-size: 58px;
+      }
+
+      .hero-product {
+        flex-direction: column;
+      }
+
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card img,
+      .product-card h3,
+      .price,
+      .product-card button {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: stretch;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">RAZE</div>
+    <div class="brand" onclick="showPage('shop')" style="cursor:pointer;">
+      <div class="brand-r">R</div>
+      <div class="brand-name">RAZE</div>
+    </div>
+
     <nav>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#cart">Cart</a>
+      <a href="#shop" onclick="showPage('shop')">Shop</a>
+      <a href="#about" onclick="showPage('about')">About</a>
+      <a href="#cart" onclick="showPage('cart')" class="cart-link">Cart <span id="cart-count">0</span></a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Raze <span>Your Game</span></h1>
-      <p>A crisp straw‑gold non‑alcoholic pilsner brewed for athletes who want real beer character without alcohol. Clean bitterness. Light body. Zero compromise.</p>
-      <a href="#shop" class="button">Shop Now</a>
+  <main id="shop" class="page active">
+    <section class="hero">
+      <div class="hero-left">
+        <h1><span>Raze</span>Your Game</h1>
+        <p>Premium non-alcoholic pilsner crafted for athletes and high performers.</p>
+
+        <div class="badges">
+          <div class="badge"><span class="badge-icon">♢</span>Hydrate</div>
+          <div class="orange-line"></div>
+          <div class="badge"><span class="badge-icon">ϟ</span>Perform</div>
+          <div class="orange-line"></div>
+          <div class="badge"><span class="badge-icon">⌖</span>Focus</div>
+        </div>
+
+        <a href="#packs" class="button">Shop Now</a>
+      </div>
+
+      <div class="hero-product">
+        <img src="raze-can.png" alt="Raze non-alcoholic pilsner can" class="hero-can">
+        <img src="raze-beer-glass.png" alt="Raze straw-gold pilsner glass" class="hero-glass">
+      </div>
+
+      <div class="hero-right">
+        <h2><span>Pilsner Taste.</span>Athlete Mindset.</h2>
+        <p>Crisp, clean, and refreshing with a balanced, hop-forward finish. Brewed to fuel your best, without compromise.</p>
+        <button class="outline-button" onclick="showPage('about')">Learn More</button>
+      </div>
+    </section>
+
+    <section class="shop-section" id="packs">
+      <h2>Choose Your Pack</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="raze-can.png" alt="Raze Single">
+          <h3>Raze Single</h3>
+          <div class="price">$2.99</div>
+          <button onclick="addToCart('Raze Single', 2.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="raze-can.png" alt="Raze 6 Pack">
+          <h3>Raze 6 Pack</h3>
+          <div class="price">$14.99</div>
+          <button onclick="addToCart('Raze 6 Pack', 14.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="raze-can.png" alt="Raze 24 Pack">
+          <h3>Raze 24 Pack</h3>
+          <div class="price">$49.99</div>
+          <button onclick="addToCart('Raze 24 Pack', 49.99)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-info">
+      <div class="info-box">
+        <div class="info-icon">◎</div>
+        <div>
+          <h3>Available Anywhere</h3>
+          <p>We ship Raze worldwide.</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="info-icon">♧</div>
+        <div>
+          <h3>Clean Ingredients</h3>
+          <p>Brewed with quality ingredients. 0.0% alcohol. All natural.</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="info-icon">♙</div>
+        <div>
+          <h3>Built For More</h3>
+          <p>For training days, game days, and every day.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="about" class="page sub-page">
+    <h1>About Raze</h1>
+    <div class="about-layout">
+      <div class="about-card">
+        <p><strong>RAZE</strong> is a straw-gold non-alcoholic pilsner made for people who train hard but still want a proper beer experience.</p>
+        <p>It is not an energy drink or a sports drink. It is a crisp, clean, beer-style drink with a balanced hop-forward finish and 0.0% alcohol.</p>
+        <p>The brand is built around three ideas: hydrate, perform, and focus. It gives athletes a post-game drink that feels premium without slowing them down.</p>
+        <button class="button" onclick="showPage('shop')">Back to Shop</button>
+      </div>
+      <img src="raze-beer-glass.png" alt="Raze beer glass" class="about-image">
     </div>
+  </main>
 
-    <div class="can-box">
-      <h2>RAZE</h2>
-      <p>DEEP AMBER<br>NON-ALCOHOLIC BEER<br><br>0.0% ALC</p>
+  <main id="cart" class="page sub-page">
+    <h1>Your Cart</h1>
+    <div class="cart-card">
+      <div id="cart-items">Your cart is empty.</div>
+      <h2 id="total">Total: $0.00</h2>
+      <br>
+      <button class="button">Checkout</button>
     </div>
-  </section>
-
-  <section class="section" id="shop">
-    <h2>Shop Raze</h2>
-    <div class="products">
-      <div class="product-card">
-        <div class="mini-can">RAZE</div>
-        <h3>Straw Can</h3>
-        <p>A clean, refreshing straw‑gold pilsner with light malt sweetness and a sharp hop finish.</p>
-        <div class="price">$3.49</div>
-        <button onclick="addToCart('Straw Can', 3.49)">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <div class="mini-can">RAZE</div>
-        <h3>Straw 6-Pack</h3>
-        <p>Balanced bitterness and a dry finish make it ideal after training, matches, or long sessions.</p>
-        <div class="price">$17.99</div>
-        <button onclick="addToCart('Straw 6-Pack', 17.99)">Add to Cart</button>
-      </div>
-
-      <div class="product-card">
-        <div class="mini-can">RAZE</div>
-        <h3>Straw 24-Pack</h3>
-        <p>Stock up with a full case of Raze straw‑gold non‑alcoholic pilsner.</p>
-        <div class="price">$59.99</div>
-        <button onclick="addToCart('Straw 24-Pack', 59.99)">Add to Cart</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section about" id="about">
-    <div>
-      <h2>Pilsner Taste. Athlete Mindset.</h2>
-      <p>Raze is built for people who train hard but still want a proper beer experience. It is not a sports drink. It is a clean, refreshing straw‑gold non‑alcoholic pilsner built for recovery moments, post‑game celebrations, and active lifestyles.</p>
-    </div>
-
-    <div class="beer-glass"></div>
-
-    <div class="features">
-      <div class="feature">
-        <h3>0.0% Alcohol</h3>
-        <p>Enjoy the beer taste without alcohol slowing you down.</p>
-      </div>
-      <div class="feature">
-        <h3>Straw Taste</h3>
-        <p>Light-bodied with crisp hop bitterness typical of a classic pilsner.</p>
-      </div>
-      <div class="feature">
-        <h3>Post-Game Ready</h3>
-        <p>Designed for athletes, teams, and active people.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cart" id="cart">
-    <h2>Your Cart</h2>
-    <div id="cart-items">Your cart is empty.</div>
-    <h3 id="total">Total: $0.00</h3>
-  </section>
+  </main>
 
   <footer>
-    RAZE NON-ALCOHOLIC BEER | DEEP AMBER | RAZE YOUR GAME
+    RAZE NON-ALCOHOLIC PILSNER | RAZE YOUR GAME
   </footer>
 
   <script>
     let cart = [];
 
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
     function addToCart(product, price) {
       cart.push({ product, price });
       updateCart();
+      showPage('cart');
     }
 
     function updateCart() {
       const cartItems = document.getElementById('cart-items');
       const totalText = document.getElementById('total');
+      const cartCount = document.getElementById('cart-count');
+
+      cartCount.textContent = cart.length;
 
       if (cart.length === 0) {
         cartItems.innerHTML = 'Your cart is empty.';
@@ -398,7 +641,7 @@
 
       cart.forEach((item) => {
         total += item.price;
-        cartItems.innerHTML += `<p>${item.product} - $${item.price.toFixed(2)}</p>`;
+        cartItems.innerHTML += `<div class="cart-row"><span>${item.product}</span><strong>$${item.price.toFixed(2)}</strong></div>`;
       });
 
       totalText.innerHTML = `Total: $${total.toFixed(2)}`;
@@ -406,3 +649,4 @@
   </script>
 </body>
 </html>
+
