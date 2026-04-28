@@ -33,7 +33,7 @@
       font-size: 30px;
       font-weight: 900;
       letter-spacing: 8px;
-      color: #8a3b08;
+      color: #cfa12e;
     }
 
     nav a {
@@ -45,7 +45,7 @@
     }
 
     nav a:hover {
-      color: #8a3b08;
+      color: #cfa12e;
     }
 
     .hero {
@@ -66,7 +66,7 @@
     }
 
     .hero-text span {
-      color: #8a3b08;
+      color: #cfa12e;
     }
 
     .hero-text p {
@@ -79,9 +79,9 @@
     .button {
       display: inline-block;
       padding: 15px 30px;
-      background: #8a3b08;
+      background: #cfa12e;
       color: white;
-      text-decoration: none:
+      text-decoration: none;
       font-weight: bold;
       border-radius: 4px;
       letter-spacing: 1px;
@@ -102,14 +102,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-top: 18px solid #7b3307;
-      border-bottom: 18px solid #7b3307;
+      border-top: 18px solid #d4a63a;
+      border-bottom: 18px solid #d4a63a;
       position: relative;
     }
 
     .can-box h2 {
       font-size: 42px;
-      color: #8a3b08;
+      color: #cfa12e;
       letter-spacing: 6px;
     }
 
@@ -126,7 +126,7 @@
       margin: auto;
       border: 5px solid rgba(255,255,255,0.9);
       border-radius: 18px 18px 35px 35px;
-      background: linear-gradient(180deg, #f6d08b 0%, #b65a08 40%, #5f2604 100%);
+      background: linear-gradient(180deg, #f6d08b 0%, #e0b64a 40%, #c79a2e 100%);
       box-shadow: inset 0 0 25px rgba(255,255,255,0.35), 0 20px 45px rgba(0,0,0,0.25);
       position: relative;
     }
@@ -172,13 +172,13 @@
       height: 210px;
       background: linear-gradient(90deg, #ffffff, #f8f2e8, #ffffff);
       border-radius: 22px;
-      border-top: 10px solid #7b3307;
-      border-bottom: 10px solid #7b3307;
+      border-top: 10px solid #d4a63a;
+      border-bottom: 10px solid #d4a63a;
       margin: 0 auto 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #8a3b08;
+      color: #cfa12e;
       font-weight: 900;
       letter-spacing: 3px;
       box-shadow: 0 12px 25px rgba(0,0,0,0.18);
@@ -198,7 +198,7 @@
     .price {
       font-size: 22px;
       font-weight: bold;
-      color: #8a3b08;
+      color: #cfa12e;
       margin-bottom: 20px;
     }
 
@@ -213,7 +213,7 @@
     }
 
     .product-card button:hover {
-      background: #8a3b08;
+      background: #cfa12e;
     }
 
     .about {
@@ -246,7 +246,7 @@
       background: #222;
       padding: 22px;
       border-radius: 12px;
-      border-left: 4px solid #8a3b08;
+      border-left: 4px solid #cfa12e;
     }
 
     .cart {
@@ -263,7 +263,7 @@
     }
 
     footer {
-      background: #8a3b08;
+      background: #cfa12e;
       color: white;
       text-align: center;
       padding: 25px;
@@ -302,7 +302,7 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Raze <span>Your Game</span></h1>
-      <p>A deep amber non-alcoholic beer made for athletes who want the taste of real beer without the alcohol. Full flavour. Zero alcohol. No compromise.</p>
+      <p>A crisp straw‑gold non‑alcoholic pilsner brewed for athletes who want real beer character without alcohol. Clean bitterness. Light body. Zero compromise.</p>
       <a href="#shop" class="button">Shop Now</a>
     </div>
 
@@ -317,34 +317,34 @@
     <div class="products">
       <div class="product-card">
         <div class="mini-can">RAZE</div>
-        <h3>Deep Amber Can</h3>
-        <p>A smooth, malty, deep amber non-alcoholic beer with a crisp finish.</p>
+        <h3>Straw Can</h3>
+        <p>A clean, refreshing straw‑gold pilsner with light malt sweetness and a sharp hop finish.</p>
         <div class="price">$3.49</div>
-        <button onclick="addToCart('Deep Amber Can', 3.49)">Add to Cart</button>
+        <button onclick="addToCart('Straw Can', 3.49)">Add to Cart</button>
       </div>
 
       <div class="product-card">
         <div class="mini-can">RAZE</div>
-        <h3>Deep Amber 6-Pack</h3>
-        <p>Perfect for post-game recovery, team events, or weekend plans.</p>
+        <h3>Straw 6-Pack</h3>
+        <p>Balanced bitterness and a dry finish make it ideal after training, matches, or long sessions.</p>
         <div class="price">$17.99</div>
-        <button onclick="addToCart('Deep Amber 6-Pack', 17.99)">Add to Cart</button>
+        <button onclick="addToCart('Straw 6-Pack', 17.99)">Add to Cart</button>
       </div>
 
       <div class="product-card">
         <div class="mini-can">RAZE</div>
-        <h3>Deep Amber 24-Pack</h3>
-        <p>Stock up with a full case of Raze deep amber non-alcoholic beer.</p>
+        <h3>Straw 24-Pack</h3>
+        <p>Stock up with a full case of Raze straw‑gold non‑alcoholic pilsner.</p>
         <div class="price">$59.99</div>
-        <button onclick="addToCart('Deep Amber 24-Pack', 59.99)">Add to Cart</button>
+        <button onclick="addToCart('Straw 24-Pack', 59.99)">Add to Cart</button>
       </div>
     </div>
   </section>
 
   <section class="section about" id="about">
     <div>
-      <h2>Deep Amber Beer. Athlete Mindset.</h2>
-      <p>Raze is built for people who train hard but still want a proper beer experience. It is not a sports drink. It is a bold, refreshing deep amber non-alcoholic beer made for recovery moments, post-game celebrations, and active lifestyles.</p>
+      <h2>Pilsner Taste. Athlete Mindset.</h2>
+      <p>Raze is built for people who train hard but still want a proper beer experience. It is not a sports drink. It is a clean, refreshing straw‑gold non‑alcoholic pilsner built for recovery moments, post‑game celebrations, and active lifestyles.</p>
     </div>
 
     <div class="beer-glass"></div>
@@ -355,8 +355,8 @@
         <p>Enjoy the beer taste without alcohol slowing you down.</p>
       </div>
       <div class="feature">
-        <h3>Deep Amber Taste</h3>
-        <p>Malty, smooth, and richer than a light lager.</p>
+        <h3>Straw Taste</h3>
+        <p>Light-bodied with crisp hop bitterness typical of a classic pilsner.</p>
       </div>
       <div class="feature">
         <h3>Post-Game Ready</h3>
